@@ -32,6 +32,8 @@ const factorial = function(num) {
 //Global declarations
 const selectors = document.querySelectorAll('.selector');
 const operations = document.querySelectorAll('.operation');
+const upperDisplay = document.querySelector('.upper p');
+const lowerDisplay = document.querySelector('.lower p');
 var expression = [];
 var char;
 var operator;
@@ -50,13 +52,14 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
     char = e.target.id;
     char = +char; //converts every number entered to datatype number
     expression.push(char);
+    lowerDisplay.textContent = expression.join('');
 }));
 
 //The main calculator
 operations.forEach(button => button.addEventListener('click', (e) => {
     char = e.target.id;
     if(char === "=") {//when user hits equal sign
-        console.log(expression.join(' '));
+        upperDisplay.textContent = expression.join('');
         for (let index = 0; index < expression.length; index++) {
             if(typeof(expression[index]) === 'string') {//when operator is identified, identify operands on its both sides
                 var op1 = expression[index-1];
@@ -65,10 +68,11 @@ operations.forEach(button => button.addEventListener('click', (e) => {
                 answer = solve(op1, op2, operator);
                 expression.splice(0,3,answer); //replace first 3 elements with their answer
                 index = -1;
+                lowerDisplay.textContent = answer;
             }
         };
-        console.log(answer);
     } else {
-    expression.push(char);
+        expression.push(char);
+        lowerDisplay.textContent = expression.join('');
     };
 }));
