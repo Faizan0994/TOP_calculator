@@ -61,10 +61,28 @@ p {
 }
 
 .display .upper {
+    display: flex;
+    color: white;
+    align-items: flex-end;
+    justify-content: left;
+    font-size: 4vh;
     height: 30%;
     flex: 7;
 }
 
+.upper p {
+    text-align: left;
+}
+
+.lower p {
+    text-align: right;
+}
+
 .display .lower {
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
+    font-size: 5vh;
+    color: white;
     flex: 8;
 }
