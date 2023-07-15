@@ -36,3 +36,10 @@ var expression = [];
 var char;
 var operator;
 var answer = 0;
+
+//To input numbers
+selectors.forEach(button => button.addEventListener('click', (e) => {
+    char = e.target.id;
+    char = +char; //converts every number entered to datatype number
+    expression.push(char);
+}));
