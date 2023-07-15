@@ -37,6 +37,14 @@ var char;
 var operator;
 var answer = 0;
 
+const solve = function(n1, n2, operator) {
+    if(operator === '+') return add(n1, n2);
+    else if(operator === '-') return subtract(n1, n2);
+    else if(operator === '*') return multiply(n1, n2);
+    else if(operator === '/') return divide(n1, n2);
+    else return 0;
+}
+
 //To input numbers
 selectors.forEach(button => button.addEventListener('click', (e) => {
     char = e.target.id;
@@ -54,7 +62,7 @@ operations.forEach(button => button.addEventListener('click', (e) => {
                 var op1 = expression[index-1];
                 var op2 = expression[index+1];
                 operator = expression[index];
-                answer = add(op1, op2);
+                answer = solve(op1, op2, operator);
                 expression.splice(0,3,answer); //replace first 3 elements with their answer
                 index = -1;
             }
