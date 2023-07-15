@@ -28,3 +28,11 @@ const factorial = function(num) {
   return factorial;
 };
 /////////////////////////////////////////////////////////
+
+//Global declarations
+const selectors = document.querySelectorAll('.selector');
+const operations = document.querySelectorAll('.operation');
+var expression = [];
+var char;
+var operator;
+var answer = 0;
