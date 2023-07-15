@@ -43,3 +43,24 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
     char = +char; //converts every number entered to datatype number
     expression.push(char);
 }));
+
+//The main calculator
+operations.forEach(button => button.addEventListener('click', (e) => {
+    char = e.target.id;
+    if(char === "=") {//when user hits equal sign
+        console.log(expression.join(' '));
+        for (let index = 0; index < expression.length; index++) {
+            if(typeof(expression[index]) === 'string') {//when operator is identified, identify operands on its both sides
+                var op1 = expression[index-1];
+                var op2 = expression[index+1];
+                operator = expression[index];
+                answer = add(op1, op2);
+                expression.splice(0,3,answer); //replace first 3 elements with their answer
+                index = -1;
+            }
+        };
+        console.log(answer);
+    } else {
+    expression.push(char);
+    };
+}));
