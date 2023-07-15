@@ -36,6 +36,7 @@ body {
     background-color: #333333;
     display: flex;
     height: 15vh;
+    flex-direction: column;
 }
 
 .selector, .operation, .reset {
@@ -57,4 +58,13 @@ p {
 
 .operation, .reset {
     color: white;
+}
+
+.display .upper {
+    height: 30%;
+    flex: 7;
+}
+
+.display .lower {
+    flex: 8;
 }
