@@ -44,7 +44,8 @@ body {
     justify-content: center;
     align-items: center;
     flex: 1;
-    border: 0.1px solid black;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, .25);
     font-size: 4vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
