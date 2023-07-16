@@ -80,6 +80,11 @@ operations.forEach(button => button.addEventListener('click', (e) => {
                 lowerDisplay.textContent = answer;
             }
         };
+    }else if(char === 'AC'){
+        expression = [];
+        answer = 0;
+        lowerDisplay.textContent = "";
+        upperDisplay.textContent = "";
     } else {
         if(expression.length == 0) expression.push('Ans');
         expression.push(char);
