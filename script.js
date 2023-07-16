@@ -54,6 +54,7 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
     char = e.target.id;
     if(char === 'Ans'){
         expression.push(char);
+        upperDisplay.textContent = answer;
         lowerDisplay.textContent = expression.join('');
     } else {
         char = +char; //converts every number entered to datatype number
@@ -80,6 +81,7 @@ operations.forEach(button => button.addEventListener('click', (e) => {
             }
         };
     } else {
+        if(expression.length == 0) expression.push('Ans');
         expression.push(char);
         lowerDisplay.textContent = expression.join('');
     };
