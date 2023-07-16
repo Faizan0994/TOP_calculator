@@ -40,6 +40,8 @@ var operator;
 var answer = 0;
 
 const solve = function(n1, n2, operator) {
+    if(n1 === 'Ans') n1 = answer;
+    if(n2 === 'Ans') n2 = answer;
     if(operator === '+') return add(n1, n2);
     else if(operator === '-') return subtract(n1, n2);
     else if(operator === '*') return multiply(n1, n2);
@@ -50,9 +52,14 @@ const solve = function(n1, n2, operator) {
 //To input numbers
 selectors.forEach(button => button.addEventListener('click', (e) => {
     char = e.target.id;
-    char = +char; //converts every number entered to datatype number
-    expression.push(char);
-    lowerDisplay.textContent = expression.join('');
+    if(char === 'Ans'){
+        expression.push(char);
+        lowerDisplay.textContent = expression.join('');
+    } else {
+        char = +char; //converts every number entered to datatype number
+        expression.push(char);
+        lowerDisplay.textContent = expression.join('');
+    }
 }));
 
 //The main calculator
@@ -61,12 +68,13 @@ operations.forEach(button => button.addEventListener('click', (e) => {
     if(char === "=") {//when user hits equal sign
         upperDisplay.textContent = expression.join('');
         for (let index = 0; index < expression.length; index++) {
-            if(typeof(expression[index]) === 'string') {//when operator is identified, identify operands on its both sides
+            if(typeof(expression[index]) === 'string' && expression[index]!=='Ans') {//when operator is identified, identify operands on its both sides
                 var op1 = expression[index-1];
+                if(isNaN(op1)) op1 = 'Ans';
                 var op2 = expression[index+1];
                 operator = expression[index];
                 answer = solve(op1, op2, operator);
-                expression.splice(0,3,answer); //replace first 3 elements with their answer
+                expression.splice(0,3); //replace first 3 elements with their answer
                 index = -1;
                 lowerDisplay.textContent = answer;
             }
