@@ -59,6 +59,18 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
     } else {
         char = +char; //converts every number entered to datatype number
         expression.push(char);
+        let index = (expression.indexOf(char))
+        if(typeof(expression[index - 1]) === 'number'){//for supporting multidigit numbers
+            let currentDigit;
+            let lastDigit = index - 1;
+            expression[index] = "" + expression[lastDigit] + expression[index];
+            expression.splice(lastDigit, 1);
+            index--;
+            //for converting back to number type
+            currentDigit = expression[index];
+            currentDigit = +currentDigit;
+            expression[index] = currentDigit;
+        }
         lowerDisplay.textContent = expression.join('');
     }
 }));
