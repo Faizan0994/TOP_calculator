@@ -52,7 +52,7 @@ const solve = function(n1, n2, operator) {
 //To input numbers
 selectors.forEach(button => button.addEventListener('click', (e) => {
     char = e.target.id;
-    if(char === 'Ans'){
+    if(char === 'Ans'){ //for the Ans button
         expression.push(char);
         upperDisplay.textContent = answer;
         lowerDisplay.textContent = expression.join('');
@@ -75,7 +75,7 @@ operations.forEach(button => button.addEventListener('click', (e) => {
                 var op2 = expression[index+1];
                 operator = expression[index];
                 answer = solve(op1, op2, operator);
-                expression.splice(0,3); //replace first 3 elements with their answer
+                expression.splice(0,3); //Remove first 3 elements
                 index = -1;
                 lowerDisplay.textContent = answer;
             }
