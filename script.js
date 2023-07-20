@@ -63,6 +63,7 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
         char = +char; //converts every number entered to datatype number
         expression.push(char);
         let index = (expression.indexOf(char));
+        if(expression[index+1] === expression[index]) index++; //check if the digit is repeating
         if(typeof(expression[index - 1]) === 'number'){//for supporting multidigit numbers
             let currentDigit;
             let lastDigit = index - 1;
