@@ -57,8 +57,11 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
         upperDisplay.textContent = answer;
         lowerDisplay.textContent = expression.join('');
     } else if(char === '.') {//for numbers with decimal point
-        expression.push(char);
-        lowerDisplay.textContent = expression.join('');
+        if(!expression.includes(char) && expression[expression.length - 1]%1 === 0){
+            expression.push(char);
+            let index = (expression.indexOf(char));
+            lowerDisplay.textContent = expression.join('');
+        }
     } else {
         char = +char; //converts every number entered to datatype number
         expression.push(char);
@@ -75,6 +78,7 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
             currentDigit = +currentDigit;
             expression[index] = currentDigit;
         }
+        if(expression[index+2] === expression[index]) index = index+2; //check if the digit is repeating
         if(expression[index-1] === '.'){ //for floats
             if(typeof(expression[index - 2]) === 'number' && expression[index-2]%1 === 0){//check if number already has a decimal point
                 let currentDigit;
@@ -89,6 +93,7 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
         }
         lowerDisplay.textContent = expression.join('');
     }
+    console.log(expression);
 }));
 
 //The main calculator
