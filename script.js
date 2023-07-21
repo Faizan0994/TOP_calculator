@@ -65,8 +65,7 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
     } else {
         char = +char; //converts every number entered to datatype number
         expression.push(char);
-        let index = (expression.indexOf(char));
-        if(expression[index+1] === expression[index]) index++; //check if the digit is repeating
+        let index = (expression.lastIndexOf(char));
         if(typeof(expression[index - 1]) === 'number'){//for supporting multidigit numbers
             let currentDigit;
             let lastDigit = index - 1;
@@ -78,7 +77,6 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
             currentDigit = +currentDigit;
             expression[index] = currentDigit;
         }
-        if(expression[index+2] === expression[index]) index = index+2; //check if the digit is repeating
         if(expression[index-1] === '.'){ //for floats
             if(typeof(expression[index - 2]) === 'number' && expression[index-2]%1 === 0){//check if number already has a decimal point
                 let currentDigit;
