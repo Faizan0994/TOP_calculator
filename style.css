@@ -1,7 +1,9 @@
 body {
     display: flex;
     justify-content: center;
+    gap: 5vh;
     align-items: center;
+    flex-direction: column;
     min-height: 90vh;
     background-color: rgb(20, 27, 39);
 }
@@ -15,6 +17,7 @@ body {
     align-items: stretch;
     border: 1px solid;
     border-color: rgb(253, 253, 253);
+    align-self: center;
 }
 
 .row {
@@ -96,4 +99,17 @@ p {
     flex: 8;
     border: 1px solid;
     border-color: rgba(0, 0, 0, .15);
+}
+
+.footer {
+    display: flex;
+    align-self: center;
+    font-size: 3vh;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.placeholder {
+    font-size: 3vh;
+    color: rgb(20, 27, 39);
 }
