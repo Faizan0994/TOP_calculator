@@ -104,7 +104,11 @@ operations.forEach(button => button.addEventListener('click', (e) => {
         for (let index = 0; index < expression.length; index++) {
             if(typeof(expression[index]) === 'string' && expression[index]!=='Ans') {//when operator is identified, identify operands on its both sides
                 var op1 = expression[index-1];
-                if(isNaN(op1)) op1 = 'Ans';
+                if(isNaN(op1) && op1 !== 'Ans'){
+                    op1 = 'Ans';
+                    expression.unshift(op1);
+                    index++;
+                }
                 var op2 = expression[index+1];
                 operator = expression[index];
                 answer = solve(op1, op2, operator);
