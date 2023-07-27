@@ -3,6 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 90vh;
+    background-color: rgb(20, 27, 39);
 }
 
 .calculator {
@@ -12,6 +13,8 @@ body {
     max-width: 35vh;
     flex-direction: column;
     align-items: stretch;
+    border: 1px solid;
+    border-color: rgb(253, 253, 253);
 }
 
 .row {
@@ -69,6 +72,8 @@ p {
     font-size: 4vh;
     height: 30%;
     flex: 7;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, .15);
 }
 
 .upper p {
@@ -89,4 +94,6 @@ p {
     font-size: 5vh;
     color: white;
     flex: 8;
+    border: 1px solid;
+    border-color: rgba(0, 0, 0, .15);
 }
