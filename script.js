@@ -46,6 +46,7 @@ const solve = function(n1, n2, operator) {
     else if(operator === '-') return subtract(n1, n2);
     else if(operator === '*') return multiply(n1, n2);
     else if(operator === '/') return divide(n1, n2);
+    else if(operator === '!') return factorial(n1);
     else return 0;
 }
 
@@ -106,7 +107,11 @@ operations.forEach(button => button.addEventListener('click', (e) => {
                 var op2 = expression[index+1];
                 operator = expression[index];
                 answer = solve(op1, op2, operator);
-                expression.splice(0,3); //Remove first 3 elements
+                if(operator === '!') {
+                    expression.splice(0,2); //Remove first 2 elements
+                }else {
+                    expression.splice(0,3); //Remove first 3 elements
+                }
                 index = -1;
                 lowerDisplay.textContent = answer;
             }
