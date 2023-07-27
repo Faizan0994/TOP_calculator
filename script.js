@@ -47,6 +47,7 @@ const solve = function(n1, n2, operator) {
     else if(operator === '*') return multiply(n1, n2);
     else if(operator === '/') return divide(n1, n2);
     else if(operator === '!') return factorial(n1);
+    else if(operator === '%') return n1*100;
     else return 0;
 }
 
@@ -109,6 +110,8 @@ operations.forEach(button => button.addEventListener('click', (e) => {
                 answer = solve(op1, op2, operator);
                 if(operator === '!') {
                     expression.splice(0,2); //Remove first 2 elements
+                }else if(operator === '%') {
+                    expression.splice(0,1); //Remove first element
                 }else {
                     expression.splice(0,3); //Remove first 3 elements
                 }
@@ -125,5 +128,6 @@ operations.forEach(button => button.addEventListener('click', (e) => {
         if(expression.length == 0) expression.push('Ans');
         expression.push(char);
         lowerDisplay.textContent = expression.join('');
+        console.log(expression);
     };
 }));
