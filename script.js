@@ -32,6 +32,7 @@ const factorial = function(num) {
 //Global declarations
 const selectors = document.querySelectorAll('.selector');
 const operations = document.querySelectorAll('.operation');
+const reset = document.querySelector('.reset');
 const upperDisplay = document.querySelector('.upper p');
 const lowerDisplay = document.querySelector('.lower p');
 var expression = [];
@@ -135,3 +136,34 @@ operations.forEach(button => button.addEventListener('click', (e) => {
         console.log(expression);
     };
 }));
+
+////////////////////////////////////////////////////////////
+//For styling//
+////////////////////////////////////////////////////////////
+
+//Hover effects for selectors
+selectors.forEach(selector => selector.onmouseover = function(e){ //when mouse is over the button
+    e.target.classList.add('selectorHover');
+});
+
+selectors.forEach(selector => selector.onmouseout = function(e){ //when mouse leaves the button
+    e.target.classList.remove('selectorHover');
+});
+
+//Hover effects for operations
+operations.forEach(operation => operation.onmouseover = function(e){
+    e.target.classList.add('operationHover');
+});
+
+operations.forEach(operation => operation.onmouseout = function(e){
+    e.target.classList.remove('operationHover');
+});
+
+//Hover effect for reset button
+reset.onmouseover = function(e){
+    e.target.classList.add('resetHover');
+}
+
+reset.onmouseout = function(e){
+    e.target.classList.remove('resetHover');
+}
