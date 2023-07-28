@@ -31,25 +31,37 @@ body {
     background-color: #1F2937;
 }
 
-.selector:hover {
+.selectorHover{
     background-color: rgb(44, 58, 77);
 }
+
+/*.selector:hover {
+    background-color: rgb(44, 58, 77);
+}*/
 
 .operation {
     background-color: #936814;
 }
 
-.operation:hover {
+.operationHover {
     background-color: #a3771e;
 }
+
+/*.operation:hover {
+    background-color: #a3771e;
+}*/
 
 .reset {
     background-color: #9b1b1b;
 }
 
-.reset:hover {
+.resetHover {
     background-color: #a82121;
 }
+
+/*.reset:hover {
+    background-color: #a82121;
+}*/
 
 .display {
     background-color: #333333;
@@ -67,6 +79,7 @@ body {
     border-color: rgba(0, 0, 0, .25);
     font-size: 4vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: ease-in-out, 0.07s;
 }
 
 p {
@@ -125,4 +138,8 @@ p {
 .placeholder {
     font-size: 3vh;
     color: rgb(20, 27, 39);
+}
+
+.pressed {
+    background-color: rgb(89, 136, 89);
 }
