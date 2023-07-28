@@ -54,6 +54,9 @@ const solve = function(n1, n2, operator) {
 
 //To input numbers
 selectors.forEach(button => button.addEventListener('click', (e) => {
+
+    e.target.classList.add('pressed');
+
     char = e.target.id;
     if(char === 'Ans'){ //for the Ans button
         expression.push(char);
@@ -99,6 +102,9 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
 
 //The main calculator
 operations.forEach(button => button.addEventListener('click', (e) => {
+
+    e.target.classList.add('pressed'); 
+
     char = e.target.id;
     if(char === "=") {//when user hits equal sign
         upperDisplay.textContent = expression.join('');
@@ -167,3 +173,12 @@ reset.onmouseover = function(e){
 reset.onmouseout = function(e){
     e.target.classList.remove('resetHover');
 }
+
+//Clicking effects
+selectors.forEach(selector => selector.addEventListener('transitionend', (e) => {
+    e.target.classList.remove('pressed');
+}));
+
+operations.forEach(operation => operation.addEventListener('transitionend', (e) => {
+    e.target.classList.remove('pressed');
+}));
