@@ -17,6 +17,7 @@ body {
     align-items: stretch;
     border: 1px solid;
     border-color: rgb(253, 253, 253);
+    border-radius: 1px;
     align-self: center;
 }
 
@@ -30,12 +31,24 @@ body {
     background-color: #1F2937;
 }
 
+.selector:hover {
+    background-color: rgb(44, 58, 77);
+}
+
 .operation {
     background-color: #936814;
 }
 
+.operation:hover {
+    background-color: #a3771e;
+}
+
 .reset {
     background-color: #9b1b1b;
+}
+
+.reset:hover {
+    background-color: #a82121;
 }
 
 .display {
