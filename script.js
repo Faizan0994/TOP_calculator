@@ -61,8 +61,8 @@ const solve = function(n1, n2, operator) {
 
 //To input numbers
 const takeSelectorInput = function(e){
-    e.target.classList.add('pressed');
-    char = e.target.id;
+    e.classList.add('pressed');
+    char = e.id;
     if(char === 'Ans'){ //for the Ans button
         expression.push(char);
         upperDisplay.textContent = answer;
@@ -107,9 +107,9 @@ const takeSelectorInput = function(e){
 
 //The main calculator
 const calculate = function(e){
-    e.target.classList.add('pressed'); 
+    e.classList.add('pressed'); 
 
-    char = e.target.id;
+    char = e.id;
     if(char === "=") {//when user hits equal sign
         upperDisplay.textContent = expression.join('');
         for (let index = 0; index < expression.length; index++) {
@@ -150,13 +150,26 @@ const calculate = function(e){
 
 //To input numbers
 selectors.forEach(button => button.addEventListener('click', (e) => {
-    takeSelectorInput(e);
+    takeSelectorInput(e.target);
 }));
 
 //To calculate
 operations.forEach(button => button.addEventListener('click', (e) => {
-    calculate(e);
+    calculate(e.target);
 }));
+
+////////////////////////////////////////////////////
+//For Keyboard inputs
+///////////////////////////////////////////////////
+
+window.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') keyInput = document.getElementById('=');
+    else keyInput = document.getElementById(`${e.key}`);
+
+    if(keyInput.classList.contains('selector')) takeSelectorInput(keyInput);
+    else if(keyInput.classList.contains('operation')) calculate(keyInput);
+    else return;
+});
 
 ////////////////////////////////////////////////////////////
 //For styling//
