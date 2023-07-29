@@ -53,10 +53,8 @@ const solve = function(n1, n2, operator) {
 }
 
 //To input numbers
-selectors.forEach(button => button.addEventListener('click', (e) => {
-
+const takeSelectorInput = function(e){
     e.target.classList.add('pressed');
-
     char = e.target.id;
     if(char === 'Ans'){ //for the Ans button
         expression.push(char);
@@ -98,11 +96,10 @@ selectors.forEach(button => button.addEventListener('click', (e) => {
         lowerDisplay.textContent = expression.join('');
     }
     console.log(expression);
-}));
+}
 
 //The main calculator
-operations.forEach(button => button.addEventListener('click', (e) => {
-
+const calculate = function(e){
     e.target.classList.add('pressed'); 
 
     char = e.target.id;
@@ -141,6 +138,17 @@ operations.forEach(button => button.addEventListener('click', (e) => {
         lowerDisplay.textContent = expression.join('');
         console.log(expression);
     };
+}
+
+
+//To input numbers
+selectors.forEach(button => button.addEventListener('click', (e) => {
+    takeSelectorInput(e);
+}));
+
+//To calculate
+operations.forEach(button => button.addEventListener('click', (e) => {
+    calculate(e);
 }));
 
 ////////////////////////////////////////////////////////////
