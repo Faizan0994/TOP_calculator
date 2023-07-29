@@ -13,7 +13,14 @@ const multiply = function(n1, n2) {
 }
 
 const divide = function(n1, n2) {
-    return n1/n2;
+    if(n2 === 0){
+        expression = [];
+        answer = 0;
+        upperDisplay.textContent = "";
+        return "You can't do that";
+    } else {
+        return n1/n2;
+    }
 }
 
 const percent = function(n1, n2) {
