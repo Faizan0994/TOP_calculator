@@ -173,6 +173,7 @@ operations.forEach(button => button.addEventListener('click', (e) => {
 ///////////////////////////////////////////////////
 
 window.addEventListener('keydown', (e) => {
+    e.preventDefault();
     if(e.key === 'Enter') keyInput = document.getElementById('=');
     else keyInput = document.getElementById(`${e.key}`);
 
