@@ -42,7 +42,6 @@ const operations = document.querySelectorAll('.operation');
 const reset = document.querySelector('.reset');
 const upperDisplay = document.querySelector('.upper p');
 const lowerDisplay = document.querySelector('.lower p');
-const audio = document.querySelector('.sound');
 var expression = [];
 var char;
 var operator;
@@ -62,10 +61,6 @@ const solve = function(n1, n2, operator) {
 
 //To input numbers
 const takeSelectorInput = function(e){
-
-    //play calculator button sound
-    audio.currentTime = 0;
-    audio.play();
 
     e.classList.add('pressed');
     char = e.id;
@@ -113,9 +108,6 @@ const takeSelectorInput = function(e){
 
 //The main calculator
 const calculate = function(e){
-    //play calculator button sound
-    audio.currentTime = 0;
-    audio.play();
 
     e.classList.add('pressed'); 
 

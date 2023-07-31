@@ -143,7 +143,3 @@ p {
 .pressed {
     background-color: rgb(89, 136, 89);
 }
-
-.credits p {
-    font-size: 2vh;
-}
